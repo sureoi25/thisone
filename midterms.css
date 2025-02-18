@@ -111,15 +111,15 @@ body {
 }
 
 .me_img {
-    width: 200px;
-    height: 200px;
+    width: 20rem;
+    height: 20rem;
     border-radius: 50%;
     object-fit: fill;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .me_img:hover {
-    transform: translateY(-5px);
+    transform: scale(1.2);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -329,12 +329,10 @@ body {
     background: #181818;
     padding: 80px 0;
 }
-
 .contact_links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
     margin-bottom: 30px;
 }
 
@@ -344,13 +342,35 @@ body {
     align-items: center;
     text-align: center;
     margin: 0;
+    padding-left: 0;
 }
 
-.github, .facebook, .gmail, .resume {
+.contact_links h4 p{
+    margin-top: 5px;
+}
+
+.contact_links img{
+    margin-left: 0;
+    margin-top: -5px;
+}
+.contact_links a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.github, .facebook, .resume, .gmail {
     margin-top: 10px;
     margin-bottom: 0;
 }
 
+.gmail_desc{
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #FFFFFF;
+
+}
 .github, .facebook, .gmail, .resume {
     width: 60px;
     height: 60px;

@@ -155,9 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
             ease: 'power2.out'
         }, '-=0.7');
 
+    let currentSection = '';
     // add/remove active
     const setActiveNav = () => {
-        let currentSection = '';
         const scrollPosition = window.scrollY + window.innerHeight / 2;
         
         //tanaw unsa nga section ang nas screen
