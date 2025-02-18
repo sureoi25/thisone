@@ -192,7 +192,7 @@ body {
     border-radius: 50%;
     object-fit: cover;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .me_img:hover {
