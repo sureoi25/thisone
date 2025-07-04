@@ -198,6 +198,7 @@ body {
     cursor: pointer;
     z-index: 1001;
     margin-right: 0;
+    transition: all 0.3s ease;
 }
 
 .menu-toggle span {
@@ -206,6 +207,19 @@ body {
     background-color: var(--text-primary);
     border-radius: 3px;
     transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* Main Container */
@@ -589,31 +603,53 @@ body {
     }
 
     .nav_migs {
-        position: fixed;
-        top: 80px;
+        position: absolute;
+        top: 100%;
         left: 50%;
-        transform: translateX(-50%) translateY(-150%);
+        transform: translateX(-50%) translateY(-10px);
         width: 90%;
         background: var(--nav-background);
+        backdrop-filter: blur(10px);
         flex-direction: column;
         align-items: center;
-        padding: 10px 0;
-        gap: 10px;
-        transition: transform 0.3s ease, opacity 0.3s ease;
+        padding: 20px 0;
+        gap: 0;
+        transition: all 0.3s ease;
         opacity: 0;
-        box-shadow: 0 4px 8px var(--card-shadow);
-        z-index: 999;
+        visibility: hidden;
+        z-index: 998;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px var(--card-shadow);
+        border: 1px solid var(--text-secondary);
     }
 
     .nav_migs.active {
-        transform: translateX(-50%) translateY(0); 
         opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
     }
 
-    .contactnav, .worknav, .projectsnav, .aboutnav {
+    .contactnav, .worknav, .projectsnav, .aboutnav, .nav_resume {
         width: 100%;
         text-align: center;
-        padding: 15px 0;
+        padding: 15px 20px;
+        font-size: 1.8rem;
+        border-bottom: 1px solid var(--text-secondary);
+        transition: all 0.3s ease;
+        margin: 0;
+    }
+
+    .nav_resume {
+        border-bottom: none;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+    }
+
+    .nav_resume .tooltip {
+        display: none;
     }
 
     .exp_title, .project_title {
@@ -624,24 +660,40 @@ body {
         width: 70px;
         height: 70px;
     }
+
+    .content_wrapper {
+        padding: 60px 20px;
+    }
+
+    .intro_title {
+        font-size: 2.8rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .exp, .projects_title, .about_title, .contact_title {
+        font-size: 2.4rem;
+    }
 }
 
 @media screen and (max-width: 640px) {
     .intro_title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .me_img {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
     }
 
     .exp, .projects_title, .about_title, .contact_title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .exp_item, .project_item {
@@ -664,13 +716,13 @@ body {
         height: 40px;
     }
 
-    .theme-switch svg {
+    .theme-switch img {
         width: 20px;
         height: 20px;
     }
 
     .contact_links {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-template-columns: 1fr;
         gap: 15px;
     }
 
@@ -680,11 +732,11 @@ body {
     }
 
     .contact_item h4 {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .contact_item p {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .contact_intro {
@@ -699,7 +751,24 @@ body {
     .exp_desc, .project_desc {
         font-size: 1rem;
     }
+
+    .nav_migs {
+        padding: 15px 0;
+    }
+
+    .contactnav, .worknav, .projectsnav, .aboutnav, .nav_resume {
+        font-size: 1.6rem;
+        padding: 12px 20px;
+    }
+    
+    .nav_resume {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+    }
 }
+
 @media screen and (max-width: 480px) {
     .logo_img {
         width: 60px;
@@ -708,7 +777,36 @@ body {
     }
 
     .navcontent {
-        padding: 0 20px;
+        padding: 0 15px;
+    }
+
+    .intro_title {
+        font-size: 1.8rem;
+    }
+
+    .me_img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .exp, .projects_title, .about_title, .contact_title {
+        font-size: 1.8rem;
+    }
+
+    .contactnav, .worknav, .projectsnav, .aboutnav, .nav_resume {
+        font-size: 1.4rem;
+        padding: 10px 20px;
+    }
+    
+    .nav_resume {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+    }
+
+    .content_wrapper {
+        padding: 40px 15px;
     }
 }
 

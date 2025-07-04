@@ -61,7 +61,8 @@ function initializeNavigation() {
             work: document.querySelector('.worknav'),
             projects: document.querySelector('.projectsnav'),
             about: document.querySelector('.aboutnav'),
-            contact: document.querySelector('.contactnav')
+            contact: document.querySelector('.contactnav'),
+            resume: document.querySelector('.nav_resume')
         }
     };
 
@@ -69,15 +70,36 @@ function initializeNavigation() {
     if (navElements.menuToggle && navElements.navMenu) {
         navElements.menuToggle.addEventListener('click', () => {
             navElements.navMenu.classList.toggle('active');
+            navElements.menuToggle.classList.toggle('active');
         });
 
         // Close menu when clicking nav items on mobile
-        document.querySelectorAll('.nav_migs > div').forEach(item => {
+        const mobileNavItems = document.querySelectorAll('.nav_migs > div, .nav_migs > a');
+        mobileNavItems.forEach(item => {
             item.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
                     navElements.navMenu.classList.remove('active');
+                    navElements.menuToggle.classList.remove('active');
                 }
             });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && 
+                !navElements.menuToggle.contains(e.target) && 
+                !navElements.navMenu.contains(e.target)) {
+                navElements.navMenu.classList.remove('active');
+                navElements.menuToggle.classList.remove('active');
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navElements.navMenu.classList.remove('active');
+                navElements.menuToggle.classList.remove('active');
+            }
         });
     }
 
