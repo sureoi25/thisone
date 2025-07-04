@@ -141,6 +141,53 @@ body {
     color: var(--background-primary);
 }
 
+.nav_resume {
+    font-size: 2rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    position: relative;
+}
+.nav_resume:hover, .nav_resume:focus {
+    background-color: var(--accent-color);
+    color: var(--background-primary);
+}
+.resume-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    margin-right: 3px;
+}
+.tooltip {
+    visibility: hidden;
+    opacity: 0;
+    width: max-content;
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
+    text-align: center;
+    border-radius: 6px;
+    padding: 6px 12px;
+    position: absolute;
+    z-index: 1001;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 8px var(--card-shadow);
+    font-size: 1.2rem;
+    transition: opacity 0.3s, visibility 0.3s;
+    pointer-events: none;
+}
+.nav_resume:hover .tooltip, .nav_resume:focus .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
 /* Mobile Menu */
 .menu-toggle {
     display: none;
